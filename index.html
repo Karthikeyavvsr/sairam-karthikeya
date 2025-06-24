@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sairam Karthikeya, V V | Data Analyst & Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent-color: #58a6ff; /* Default accent color */
+            --accent-glow: rgba(88, 166, 255, 0.3);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Glassmorphism Effect */
+        .backdrop-glass {
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(48, 54, 61, 0.5);
+        }
+        .bg-dark-card {
+            background-color: #161b22;
+        }
+        .border-dark {
+            border-color: #30363d;
+        }
+
+        /* Dynamic Accent Color */
+        .accent-color { color: var(--accent-color); }
+        .accent-bg { background-color: var(--accent-color); }
+        .timeline-item::before { border-color: var(--accent-color); }
+        .typed-cursor { color: var(--accent-color); }
+        .skill-tag:hover { border-color: var(--accent-color); }
+
+        /* Dynamic Typography with clamp() */
+        .dynamic-h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Scales smoothly from 2.5rem to 4rem */
+        }
+
+        .skill-tag {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #161b22;
+            border-width: 4px;
+            z-index: 1;
+            transition: border-color 0.4s ease;
+        }
+
+        /* Glowing Hover Effect */
+        .card-glow:hover {
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(88, 166, 255, 0.1);
+        }
+        .tilt {
+            transition: all 0.2s ease-out;
+        }
+
+        /* Typed.js Cursor */
+        .typed-cursor {
+            animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink {
+            50% { opacity: 0.0; }
+        }
+        
+        /* Command Center (CmdK) Styles */
+        #cmdk-modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #cmdk-modal.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        #cmdk-list > button:hover, #cmdk-list > button.selected {
+            background-color: #30363d;
+        }
+    </style>
+</head>
+<body class="transition-colors duration-500">
+
+    <header class="bg-[#0d1117]/80 backdrop-blur-md sticky top-0 z-50 border-b border-dark">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">Sairam Karthikeya, V V</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="hover:accent-color transition-colors duration-200">About</a>
+                <a href="#experience" class="hover:accent-color transition-colors duration-200">Experience</a>
+                <a href="#projects" class="hover:accent-color transition-colors duration-200">Projects</a>
+                <a href="#skills" class="hover:accent-color transition-colors duration-200">Skills</a>
+                <a href="#contact" class="magnetic accent-bg text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700">About</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-700">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">Projects</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">Skills</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 overflow-x-hidden">
+        <section id="home" class="text-center min-h-[80vh] flex flex-col justify-center items-center">
+            <img src="https://lh3.googleusercontent.com/d/1JbkiGNw2GxFlkDfAttmq1zcs-1WYSTxk" alt="Sairam Karthikeya" class="hero-img rounded-full w-40 h-40 mb-6 border-4 border-dark object-cover mx-auto shadow-lg tilt">
+            <h1 class="dynamic-h1 font-bold text-white leading-tight hero-text">Sairam Karthikeya, V V</h1>
+            <p id="typed-subtitle" class="mt-4 text-xl md:text-2xl accent-color h-8 hero-text"></p>
+            <p class="mt-6 max-w-3xl text-lg hero-text">
+                I turn ideas into real-world impact. With a Master’s in Computer Science and hands-on experience in analytics, predictive modeling, and automation, I build solutions that solve real problems.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4 hero-text">
+                <a href="https://www.linkedin.com/in/vvsrk1117/" target="_blank" class="magnetic text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://github.com/Karthikeyavvsr" target="_blank" class="magnetic text-gray-400 hover:text-white transition-colors duration-200" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                 <a href="mailto:sairamkarthikeyavv@gmail.com" class="magnetic text-gray-400 hover:text-white transition-colors duration-200" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 animate-section">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 section-title">About Me</h2>
+            <div class="max-w-4xl mx-auto backdrop-glass border-dark rounded-lg p-8 section-content">
+                 <p class="text-lg leading-relaxed">
+                    Beyond what's on paper, I'm driven by the urge to create. Right now, I’m in <span class="accent-color font-semibold">build mode</span>—exploring ideas, collaborating with fellow doers, and preparing to contribute to something meaningful in this AI-powered world. I’m not just chasing trends; I’m looking to help shape what’s next.
+                    <br><br>
+                    My experience at CBase and NetElixir shows I can deliver measurable outcomes, from lifting conversion rates by 20% to accelerating KPI tracking by 40%. My personal projects, like <span class="font-semibold text-white">RiskRadar</span> and <span class="font-semibold text-white">Earnings Pulse</span>, are where I apply my passion for ML and NLP to solve complex problems in finance.
+                    <br><br>
+                    I might not check every box on a job description, and my tech stack isn't endless. But I learn fast, build fast, and I show up prepared to make things happen.
+                </p>
+            </div>
+        </section>
+
+
+        <section id="experience" class="py-20 animate-section">
+            <h2 class="text-3xl font-bold text-white text-center mb-16 section-title">Professional Experience</h2>
+            <div class="max-w-3xl mx-auto relative border-l-2 border-dark pl-10">
+                <div class="mb-12 timeline-item">
+                    <p class="text-sm accent-color font-semibold">Jan 2024 - Present</p>
+                    <h3 class="text-xl font-bold text-white">Business Data Analyst</h3>
+                    <p class="text-gray-400 mb-4">CBase Inc</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Diagnosed seller performance gaps using cohort and trend analysis, contributing to a 20% lift in conversion rates.</li>
+                        <li>Deployed churn risk prediction models using Python and SQL to proactively retain high-value sellers.</li>
+                        <li>Built an automated data pipeline using AWS S3, cutting data ingestion time for ML teams by 80%.</li>
+                        <li>Presented actionable insights in monthly strategy reviews, directly influencing roadmap prioritization.</li>
+                    </ul>
+                </div>
+                <div class="mb-12 timeline-item">
+                     <p class="text-sm accent-color font-semibold">Nov 2020 - Aug 2021</p>
+                    <h3 class="text-xl font-bold text-white">Data Analyst (Social Media Marketing)</h3>
+                    <p class="text-gray-400 mb-4">NetElixir</p>
+                     <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Boosted client ROI by 60% through real-time performance analytics and strategic A/B testing.</li>
+                        <li>Engineered 10+ automated campaign dashboards, reducing report generation time from 6 hours to under 30 minutes.</li>
+                        <li>Consolidated multi-channel marketing data using ETL workflows, improving campaign attribution accuracy by 40%.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                     <p class="text-sm accent-color font-semibold">Feb 2018 - Aug 2021</p>
+                    <h3 class="text-xl font-bold text-white">Quantitative Investment Analyst</h3>
+                    <p class="text-gray-400 mb-4">Freelance</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Actively managed a $100K+ equity portfolio, consistently generating returns through disciplined trading.</li>
+                        <li>Developed Python scripts to automate trade analysis, test strategies, and track volatility.</li>
+                        <li>Leveraged financial data APIs to backtest data-driven investing strategies.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 animate-section">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 section-title">Featured Projects</h2>
+            <div class="grid md:grid-cols-1 gap-12 max-w-4xl mx-auto">
+
+                <div class="project-card" data-theme-color="#4a90e2" data-theme-glow="rgba(74, 144, 226, 0.3)">
+                    <div class="tilt backdrop-glass rounded-lg p-8 flex flex-col card-glow h-full">
+                        <h3 class="text-2xl font-bold text-white mb-2">RiskRadar</h3>
+                        <p class="accent-color mb-4 font-semibold">Institutional-Grade Portfolio Risk Dashboard</p>
+                        <p class="text-gray-300 mb-4">A comprehensive investment risk management platform...</p>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-3">Key Features:</h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                <li><span class="font-semibold text-gray-100">Advanced Monte Carlo Simulation</span></li>
+                                <li><span class="font-semibold text-gray-100">AI-Powered Sentiment Analysis</span></li>
+                                <li><span class="font-semibold text-gray-100">Unsupervised Risk Clustering</span></li>
+                                <li><span class="font-semibold text-gray-100">Automated Macro-Economic Radar</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag px-3 py-1 text-sm rounded-full">Python</span><span class="skill-tag px-3 py-1 text-sm rounded-full">FinBERT</span><span class="skill-tag px-3 py-1 text-sm rounded-full">GARCH</span><span class="skill-tag px-3 py-1 text-sm rounded-full">Monte Carlo</span><span class="skill-tag px-3 py-1 text-sm rounded-full">K-Means</span><span class="skill-tag px-3 py-1 text-sm rounded-full">PCA</span><span class="skill-tag px-3 py-1 text-sm rounded-full">AWS S3</span><span class="skill-tag px-3 py-1 text-sm rounded-full">NewsAPI</span>
+                        </div>
+                        <div class="mt-auto pt-4 flex justify-between items-center">
+                            <a href="https://github.com/Karthikeyavvsr/RiskRadar" target="_blank" class="text-accent-color font-semibold hover:underline">View on GitHub →</a>
+                            <button onclick="openRiskRadarModal()" class="magnetic text-sm accent-bg text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200">
+                                🤖 Ask AI Assistant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-theme-color="#50e3c2" data-theme-glow="rgba(80, 227, 194, 0.3)">
+                    <div class="tilt backdrop-glass rounded-lg p-8 flex flex-col card-glow h-full">
+                        <h3 class="text-2xl font-bold text-white mb-2">Earnings Pulse</h3>
+                        <p class="accent-color mb-4 font-semibold">AI-Driven Earnings Call Interpreter</p>
+                        <p class="text-gray-300 mb-4">A web app that analyzes earnings call transcripts, PDFs, or audio...</p>
+                         <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-3">Key Features:</h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                 <li><span class="font-semibold text-gray-100">Live Q&A with Gemini</span></li>
+                                 <li><span class="font-semibold text-gray-100">Multi-Format Analysis</span></li>
+                                 <li><span class="font-semibold text-gray-100">Predictive Analytics</span></li>
+                            </ul>
+                        </div>
+                         <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag px-3 py-1 text-sm rounded-full">Python</span><span class="skill-tag px-3 py-1 text-sm rounded-full">Gemini API</span><span class="skill-tag px-3 py-1 text-sm rounded-full">spaCy</span><span class="skill-tag px-3 py-1 text-sm rounded-full">ARIMA</span><span class="skill-tag px-3 py-1 text-sm rounded-full">yfinance</span><span class="skill-tag px-3 py-1 text-sm rounded-full">TextBlob</span>
+                        </div>
+                         <div class="mt-auto pt-4">
+                            <a href="https://github.com/Karthikeyavvsr/earningscall-interpreter" target="_blank" class="text-accent-color font-semibold hover:underline">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="py-20 animate-section">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 section-title">Technical Skills</h2>
+            <div class="max-w-5xl mx-auto section-content">
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4">Core Stack</h3>
+                    <div class="flex flex-wrap gap-3">
+                         <span class="skill-tag px-4 py-2 rounded-lg">Python</span><span class="skill-tag px-4 py-2 rounded-lg">SQL</span><span class="skill-tag px-4 py-2 rounded-lg">Java</span><span class="skill-tag px-4 py-2 rounded-lg">Spark</span><span class="skill-tag px-4 py-2 rounded-lg">PySpark</span>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4">Machine Learning & NLP</h3>
+                    <div class="flex flex-wrap gap-3">
+                         <span class="skill-tag px-4 py-2 rounded-lg">Predictive Modeling</span><span class="skill-tag px-4 py-2 rounded-lg">Scikit-learn</span><span class="skill-tag px-4 py-2 rounded-lg">PyTorch</span><span class="skill-tag px-4 py-2 rounded-lg">XGBoost</span><span class="skill-tag px-4 py-2 rounded-lg">FinBERT</span><span class="skill-tag px-4 py-2 rounded-lg">NLP</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Data Tools & Platforms</h3>
+                    <div class="flex flex-wrap gap-3">
+                         <span class="skill-tag px-4 py-2 rounded-lg">Power BI</span><span class="skill-tag px-4 py-2 rounded-lg">Tableau</span><span class="skill-tag px-4 py-2 rounded-lg">Data Pipelines & Automation</span><span class="skill-tag px-4 py-2 rounded-lg">ETL</span><span class="skill-tag px-4 py-2 rounded-lg">AWS (EC2, S3)</span><span class="skill-tag px-4 py-2 rounded-lg">Docker</span><span class="skill-tag px-4 py-2 rounded-lg">APIs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 text-center animate-section">
+            <h2 class="text-3xl font-bold text-white section-title">Let's Build Together</h2>
+            <p class="mt-4 max-w-xl mx-auto text-lg section-content">If you're building, dreaming, or iterating on something ambitious, I’d love to connect. Let’s collaborate, launch, or learn together.</p>
+            <div class="mt-8 section-content">
+                <a href="mailto:sairamkarthikeyavv@gmail.com" class="magnetic accent-bg text-white text-lg font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block">
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <a href="#contact" class="magnetic fixed bottom-6 right-6 z-50 accent-bg text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 transform hover:scale-110" aria-label="Contact">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+    
+    <footer class="border-t border-dark py-6 text-center text-gray-400">
+        <p>© <span id="current-year"></span> Sairam Karthikeya, V V. All Rights Reserved.</p>
+    </footer>
+    
+    <div id="riskRadarModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden p-4">
+      <div class="backdrop-glass p-6 rounded-lg shadow-lg max-w-4xl w-full border border-dark relative">
+        <button onclick="closeRiskRadarModal()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-3xl font-bold">×</button>
+        <h3 class="text-2xl font-bold text-white mb-4">🤖 Ask My AI Assistant about RiskRadar</h3>
+        <iframe src="https://www.chatbase.co/chatbot-iframe/08mRJgUg6BlisKQFcJfL7" width="100%" style="height: 60vh; min-height: 500px" frameborder="0" class="rounded-lg border border-dark"></iframe>
+      </div>
+    </div>
+
+    <div id="cmdk-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center z-[100] p-4 pt-[20vh]">
+        <div id="cmdk-wrapper" class="backdrop-glass p-4 rounded-lg shadow-lg w-full max-w-xl border border-dark">
+            <input id="cmdk-input" type="text" placeholder="Type a command or search..." class="w-full bg-[#0d1117] text-white p-3 rounded-md border border-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0d1117] focus:ring-[var(--accent-color)]">
+            <div id="cmdk-list" class="mt-4"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hero Section Animation
+            gsap.to(".hero-img", {
+                scrollTrigger: { trigger: "#home", start: "top top", end: "bottom top", scrub: true },
+                scale: 1.2, opacity: 0, ease: "power1.in"
+            });
+            gsap.to(".hero-text", {
+                 scrollTrigger: { trigger: "#home", start: "top top", end: "bottom center", scrub: 1 },
+                y: 100, opacity: 0, stagger: 0.1
+            });
+            
+            // 2. Scroll-Based Storytelling for all sections
+            const sections = document.querySelectorAll('.animate-section');
+            sections.forEach(section => {
+                const title = section.querySelector('.section-title');
+                const content = section.querySelectorAll('.section-content, .project-card, .timeline-item');
+                
+                if (title) {
+                    gsap.from(title, {
+                        scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+                        opacity: 0, y: 50, duration: 0.8, ease: 'power3.out'
+                    });
+                }
+                
+                if (content.length > 0) {
+                     gsap.from(content, {
+                        scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none none' },
+                        opacity: 0, y: 30, duration: 0.6, stagger: 0.15, ease: 'power3.out'
+                    });
+                }
+            });
+
+            // 3. Magnetic Interactions
+            document.querySelectorAll('.magnetic').forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    gsap.to(el, { x: x * 0.2, y: y * 0.3, scale: 1.1, duration: 0.7, ease: 'elastic.out(1, 0.5)' });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(el, { x: 0, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' });
+                });
+            });
+
+            // 4. Custom Page Transitions
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                        gsap.to('main', {
+                            opacity: 0, duration: 0.3, 
+                            onComplete: () => {
+                                targetElement.scrollIntoView({ behavior: 'smooth' });
+                                gsap.to('main', { opacity: 1, duration: 0.5, delay: 0.2 });
+                            }
+                        });
+                    }
+                });
+            });
+
+            // 5. Page Themes That React to Projects
+            const projectCards = document.querySelectorAll('.project-card');
+            const root = document.documentElement;
+            const defaultAccent = '#58a6ff';
+            const defaultGlow = 'rgba(88, 166, 255, 0.3)';
+
+            projectCards.forEach(card => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: "top center", end: "bottom center",
+                    onEnter: () => gsap.to(root, { '--accent-color': card.dataset.themeColor, '--accent-glow': card.dataset.themeGlow, duration: 0.4 }),
+                    onLeave: () => gsap.to(root, { '--accent-color': defaultAccent, '--accent-glow': defaultGlow, duration: 0.4 }),
+                    onEnterBack: () => gsap.to(root, { '--accent-color': card.dataset.themeColor, '--accent-glow': card.dataset.themeGlow, duration: 0.4 }),
+                    onLeaveBack: () => gsap.to(root, { '--accent-color': defaultAccent, '--accent-glow': defaultGlow, duration: 0.4 })
+                });
+            });
+            
+            // 6. Command Center (CmdK) Logic
+            const cmdkModal = document.getElementById('cmdk-modal');
+            const cmdkInput = document.getElementById('cmdk-input');
+            const cmdkList = document.getElementById('cmdk-list');
+            let selectedIndex = 0;
+            const commands = [
+                { name: 'Home', action: () => document.querySelector('a[href="#home"]').click() },
+                { name: 'About', action: () => document.querySelector('a[href="#about"]').click() },
+                { name: 'Experience', action: () => document.querySelector('a[href="#experience"]').click() },
+                { name: 'Projects', action: () => document.querySelector('a[href="#projects"]').click() },
+                { name: 'Skills', action: () => document.querySelector('a[href="#skills"]').click() },
+                { name: 'Contact Me', action: () => document.querySelector('a[href="#contact"]').click() },
+                { name: 'Open AI Assistant', action: () => openRiskRadarModal() },
+                { name: 'View Source on GitHub', action: () => window.open('https://github.com/Karthikeyavvsr', '_blank') },
+            ];
+            const renderCommands = (filter = '') => {
+                cmdkList.innerHTML = '';
+                const filteredCommands = commands.filter(c => c.name.toLowerCase().includes(filter.toLowerCase()));
+                if (filteredCommands.length > 0) {
+                    filteredCommands.forEach((cmd, i) => {
+                        const btn = Object.assign(document.createElement('button'), {
+                            className: `w-full text-left p-3 rounded-md text-white transition-colors duration-150 ${i === 0 ? 'selected' : ''}`,
+                            textContent: cmd.name,
+                            onclick: () => { cmd.action(); closeCmdk(); }
+                        });
+                        cmdkList.appendChild(btn);
+                    });
+                    selectedIndex = 0;
+                }
+            };
+            const updateSelection = (e) => {
+                const items = cmdkList.querySelectorAll('button');
+                if (items.length === 0) return;
+                items[selectedIndex].classList.remove('selected');
+                if (e.key === 'ArrowDown') selectedIndex = (selectedIndex + 1) % items.length;
+                if (e.key === 'ArrowUp') selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+                items[selectedIndex].classList.add('selected');
+            };
+            const openCmdk = () => { cmdkModal.classList.remove('hidden'); cmdkInput.focus(); renderCommands(); };
+            const closeCmdk = () => { cmdkModal.classList.add('hidden'); cmdkInput.value = ''; };
+            window.addEventListener('keydown', e => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openCmdk(); }
+                if (e.key === 'Escape' && !cmdkModal.classList.contains('hidden')) closeCmdk();
+                if (!cmdkModal.classList.contains('hidden')) {
+                    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); updateSelection(e); }
+                    if (e.key === 'Enter') { const sel = cmdkList.querySelector('.selected'); if (sel) sel.click(); }
+                }
+            });
+            cmdkInput.addEventListener('input', () => renderCommands(cmdkInput.value));
+            cmdkModal.addEventListener('click', e => { if (e.target === cmdkModal) closeCmdk(); });
+
+            // --- Original Scripts Initialization ---
+            new Typed('#typed-subtitle', {
+                strings: ["Data-Driven Builder", "Fintech Innovator", "AI & ML Strategist"],
+                typeSpeed: 60, backSpeed: 30, loop: true, backDelay: 2000,
+            });
+            VanillaTilt.init(document.querySelectorAll(".tilt"), {
+                max: 15, speed: 1000, glare: true, "max-glare": 0.2, gyroscope: true, perspective: 1000,
+            });
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+
+        // --- Global Functions ---
+        const riskRadarModal = document.getElementById('riskRadarModal');
+        function openRiskRadarModal() { riskRadarModal.classList.remove('hidden'); }
+        function closeRiskRadarModal() { riskRadarModal.classList.add('hidden'); }
+        window.addEventListener('click', e => { if (e.target == riskRadarModal) closeRiskRadarModal(); });
+        window.addEventListener('keydown', e => { if (e.key === 'Escape' && !riskRadarModal.classList.contains('hidden')) closeRiskRadarModal(); });
+    </script>
+</body>
+</html>
